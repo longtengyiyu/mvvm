@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomView">
+        <attr name="x_start" format="float"/>
+        <attr name="y_start" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="WeatherLineView">
+        <attr name="temperTextSize" format="float"/>
+        <attr name="weatextColor" format="integer"/>
+        <attr name="weaLineWidth" format="float"/>
+        <attr name="weadotRadius" format="float"/>
+        <attr name="textDotDistance" format="float"/>
+    </declare-styleable>
+</resources>
