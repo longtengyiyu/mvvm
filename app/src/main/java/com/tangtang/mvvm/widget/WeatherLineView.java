@@ -26,7 +26,7 @@ public class WeatherLineView extends View {
     /**
      * 字体最小默认16dp
      */
-    private int mTemperTextSize = 24;
+    private int mTemperTextSize = 32;
 
     /**
      * 文字颜色

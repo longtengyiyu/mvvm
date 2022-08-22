@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -15,14 +15,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="28dp"
                 android:layout_gravity="center_horizontal"/>
             <TextView
                 android:id="@+id/week_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="14sp"
+                android:textSize="28dp"
                 android:layout_gravity="center_horizontal"/>
 
             <LinearLayout
@@ -33,10 +33,10 @@
 
                 <ImageView
                     android:id="@+id/iv_day_icon"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_sun"/>
+                    android:src="@drawable/ic_sun" />
 
                 <TextView
                     android:id="@+id/id_day_text_tv"
@@ -44,7 +44,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="18sp"/>
+                    android:textSize="28dp"/>
             </LinearLayout>
 
             <com.tangtang.mvvm.widget.WeatherLineView
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="18sp"/>
+                    android:textSize="28dp"/>
             </LinearLayout>
 
             <TextView

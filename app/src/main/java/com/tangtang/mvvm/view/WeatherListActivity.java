@@ -46,18 +46,16 @@ public class WeatherListActivity extends BaseMVVMActivity<WeatherViewModel, Acti
         List<DayWeather> data = weather.getData();
         if (data != null && !data.isEmpty()){
             //同一个数组使用Collections.sort不同字段排序会有bug,具体来说就是最地温度不正确
-            List<DayWeather> list = new ArrayList<>();
-            list.addAll(data);
-            Collections.sort(list, (t1, t2) -> {
+            Collections.sort(data, (t1, t2) -> {
                 // 排序找到温度最低的，按照最低温度升序排列
                 LogUtils.d(TAG, "t1=" + t1.getTem2() + " t2:" + t2.getTem2());
                 return Integer.valueOf(t1.getTem2()) - Integer.valueOf(t2.getTem2());
             });
+            int low = Integer.valueOf(data.get(0).getTem2());
             Collections.sort(data, (t1, t2) -> {
                 // 排序找到温度最高的，按照最高温度降序排序
                 return Integer.valueOf(t2.getTem1()) - Integer.valueOf(t1.getTem1());
             });
-            int low = Integer.valueOf(list.get(0).getTem2());
             int high = Integer.valueOf(data.get(0).getTem1());
             LogUtils.d(TAG, "low=" + low + " high:" + high);
             adapter.setLowAndHigh(27, high);
