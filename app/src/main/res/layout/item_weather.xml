@@ -14,14 +14,14 @@
                 android:id="@+id/date_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="28dp"
                 android:layout_gravity="center_horizontal"/>
             <TextView
                 android:id="@+id/week_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="28dp"
                 android:layout_gravity="center_horizontal"/>
 
@@ -43,7 +43,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="28dp"/>
             </LinearLayout>
 
@@ -70,7 +70,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="28dp"/>
             </LinearLayout>
 
@@ -79,14 +79,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/black"/>
+                android:textColor="@color/white"/>
 
             <TextView
                 android:id="@+id/windLevel_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textColor="@color/black"/>
+                android:textColor="@color/white"/>
         </LinearLayout>
     </LinearLayout>
 </layout>

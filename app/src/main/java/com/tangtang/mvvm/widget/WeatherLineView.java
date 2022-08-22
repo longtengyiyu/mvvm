@@ -31,7 +31,7 @@ public class WeatherLineView extends View {
     /**
      * 文字颜色
      */
-    private int mWeaTextColor = Color.BLACK;
+    private int mWeaTextColor = Color.WHITE;
 
     /**
      * 线的宽度
