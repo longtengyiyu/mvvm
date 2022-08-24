@@ -1,9 +1,15 @@
 package com.tangtang.mvvm.entity;
 
 import com.google.gson.annotations.SerializedName;
+import com.tangtang.mvvm.utils.StringConverter;
+
+import org.greenrobot.greendao.annotation.Convert;
+import org.greenrobot.greendao.annotation.Entity;
 
 import java.util.List;
+import org.greenrobot.greendao.annotation.Generated;
 
+@Entity
 public class DayWeather {
     private String tem; //当前
     private String tem1; //最高
@@ -17,7 +23,30 @@ public class DayWeather {
     private String weaDay;
     @SerializedName("wea_night")
     private String weaNight;
+    @Convert(columnType = String.class, converter = StringConverter.class)
     private List<String> win;
+    private String city;
+
+    @Generated(hash = 432809456)
+    public DayWeather(String tem, String tem1, String tem2, String wea, String date,
+            String week, String winSpeed, String weaDay, String weaNight,
+            List<String> win, String city) {
+        this.tem = tem;
+        this.tem1 = tem1;
+        this.tem2 = tem2;
+        this.wea = wea;
+        this.date = date;
+        this.week = week;
+        this.winSpeed = winSpeed;
+        this.weaDay = weaDay;
+        this.weaNight = weaNight;
+        this.win = win;
+        this.city = city;
+    }
+
+    @Generated(hash = 1601723443)
+    public DayWeather() {
+    }
 
     public List<String> getWin() {
         return win;
@@ -97,5 +126,13 @@ public class DayWeather {
 
     public void setWeaNight(String weaNight) {
         this.weaNight = weaNight;
+    }
+
+    public String getCity() {
+        return this.city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

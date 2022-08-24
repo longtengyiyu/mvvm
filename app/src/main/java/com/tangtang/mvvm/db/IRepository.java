@@ -2,6 +2,8 @@ package com.tangtang.mvvm.db;
 
 import com.tangtang.mvvm.entity.DayWeather;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 
 public interface IRepository {
@@ -11,5 +13,12 @@ public interface IRepository {
      * @param city
      * @return
      */
-    Observable<DayWeather> getWeather(String city);
+    Observable<List<DayWeather>> getWeather(String city);
+
+    /**
+     * 保存数据
+     * @param weathers
+     * @return
+     */
+    Observable<Boolean> saveWeather(List<DayWeather> weathers);
 }

@@ -17,4 +17,5 @@ public class CommonUtils {
     public static boolean isNetConnected(){
         return true;
     }
+
 }

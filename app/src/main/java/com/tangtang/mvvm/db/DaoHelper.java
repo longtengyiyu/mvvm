@@ -3,24 +3,28 @@ package com.tangtang.mvvm.db;
 import android.content.Context;
 
 import com.tangtang.mvvm.app.Constants;
+import com.tangtang.mvvm.dao.DaoMaster;
+import com.tangtang.mvvm.dao.DaoSession;
+
+import org.greenrobot.greendao.database.Database;
 
 import java.io.File;
 
 public class DaoHelper {
     private volatile static DaoHelper singleton = null;
 
-//    private volatile DaoSession mDaoSession;
-    private volatile UpdateDaoHelper sHelper;
+    private volatile DaoSession daoSession;
+    private volatile UpdateDaoHelper helper;
 
     private DaoHelper(Context context) {
         checkDbDirectories();
-//        sHelper = new UpdateDaoHelper(context.getApplicationContext(), Constants.APP_DB_PATH);
-//        Database db = sHelper.getWritableDb();
-//        mDaoSession = new DaoMaster(db).newSession();
+        helper = new UpdateDaoHelper(context.getApplicationContext(), Constants.APP_DB);
+        Database db = helper.getWritableDb();
+        daoSession = new DaoMaster(db).newSession();
     }
 
-    public UpdateDaoHelper getsHelper() {
-        return sHelper;
+    public UpdateDaoHelper gethelper() {
+        return helper;
     }
 
     /**
@@ -82,9 +86,9 @@ public class DaoHelper {
         }
     }
 
-//    public DaoSession getDaoSession() {
-//        return mDaoSession;
-//    }
+    public DaoSession getDaoSession() {
+        return daoSession;
+    }
 
     /**
      * 关闭所有的操作，数据库开启后，使用完毕要关闭
@@ -95,16 +99,16 @@ public class DaoHelper {
     }
 
     public void closeHelper() {
-//        if (sHelper != null) {
-//            sHelper.close();
-//            sHelper = null;
-//        }
+        if (helper != null) {
+            helper.close();
+            helper = null;
+        }
     }
 
     public void closeDaoSession() {
-//        if (mDaoSession != null) {
-//            mDaoSession.clear();
-//            mDaoSession = null;
-//        }
+        if (daoSession != null) {
+            daoSession.clear();
+            daoSession = null;
+        }
     }
 }

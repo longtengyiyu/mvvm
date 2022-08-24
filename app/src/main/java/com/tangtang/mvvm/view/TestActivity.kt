@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import com.tangtang.mvvm.bean.Weather
 import com.tangtang.mvvm.databinding.ActivityWeatherListBinding
+import com.tangtang.mvvm.entity.DayWeather
 import com.tangtang.mvvm.kotlin.base.BaseKotlinActivity
 import com.tangtang.mvvm.viewmodel.WeatherViewModel
 
@@ -19,7 +20,7 @@ import com.tangtang.mvvm.viewmodel.WeatherViewModel
  * 2022/1/5                  1.0                    1.0
  * Why & What is modified:
  */
-class TestActivity: BaseKotlinActivity<WeatherViewModel, ActivityWeatherListBinding, Weather>(){
+class TestActivity: BaseKotlinActivity<WeatherViewModel, ActivityWeatherListBinding, List<DayWeather>>(){
     var city:String = "上海"
 
     override val binding: ActivityWeatherListBinding by lazy {
@@ -91,7 +92,7 @@ class TestActivity: BaseKotlinActivity<WeatherViewModel, ActivityWeatherListBind
 
     }
 
-    override fun updateData(weather: Weather) {
+    override fun updateData(weather: List<DayWeather>) {
 //        binding.city = city
 //        binding.tvWeatherInfo.text = weather.type
 //        binding.tvWeatherTemp.text = weather.temp

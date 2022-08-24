@@ -6,6 +6,7 @@ import com.tangtang.mvvm.BuildConfig;
 import com.tangtang.mvvm.api.API;
 import com.tangtang.mvvm.api.ApiModule;
 import com.tangtang.mvvm.api.ApiStore;
+import com.tangtang.mvvm.db.DaoHelper;
 import com.tangtang.mvvm.view.MediaPlayerUtils;
 
 /**
@@ -27,11 +28,16 @@ public class AppApplication extends MultiDexApplication {
         application = this;
         initApi();
         MediaPlayerUtils.init();
+        initDao();
     }
 
     private void initApi(){
         ApiModule module = new ApiModule(BuildConfig.API_HOST);
         API.getInstance().create(module, ApiStore.class);
+    }
+
+    private void initDao(){
+        DaoHelper.create(this);
     }
 
     public static AppApplication getInstance(){
