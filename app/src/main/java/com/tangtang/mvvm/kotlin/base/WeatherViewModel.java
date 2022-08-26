@@ -1,8 +1,7 @@
-package com.tangtang.mvvm.viewmodel;
+package com.tangtang.mvvm.kotlin.base;
 
 import com.tangtang.mvvm.api.ApiCallback;
 import com.tangtang.mvvm.base.AbstractBaseModel;
-import com.tangtang.mvvm.base.BaseViewModel;
 import com.tangtang.mvvm.bean.Weather;
 import com.tangtang.mvvm.entity.DayWeather;
 import com.tangtang.mvvm.model.WeatherModel;
@@ -22,7 +21,7 @@ import java.util.Set;
  * 2021/7/30                  1.0                    1.0
  * Why & What is modified:
  */
-public class WeatherViewModel extends BaseViewModel<List<DayWeather>, String> {
+public class WeatherViewModel extends BaseViewModel<List<DayWeather>> {
 
 //    public MutableLiveData<Weather> mWeather = new MutableLiveData<>();
 
@@ -32,13 +31,7 @@ public class WeatherViewModel extends BaseViewModel<List<DayWeather>, String> {
         list.add(new WeatherModel());
     }
 
-    @Override
-    public void loadData(String param) {
-        super.loadData(param);
-    }
-
-    @Override
-    protected void loadDataByNetwork(String s) {
+    public void loadDataByNetwork(String s) {
         getModel(WeatherModel.class).getWeather(s, new ApiCallback<Weather>() {
             @Override
             protected void onSuccess(Weather weather) {
@@ -66,7 +59,6 @@ public class WeatherViewModel extends BaseViewModel<List<DayWeather>, String> {
         });
     }
 
-    @Override
     protected void loadDataByDb(String s) {
         getModel(WeatherModel.class).getWeatherByDB(s, new ApiCallback<List<DayWeather>>() {
             @Override

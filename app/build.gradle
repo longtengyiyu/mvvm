@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-platform-android'
     id 'org.greenrobot.greendao'
+    id 'com.google.protobuf'
 }
 
 android {
@@ -65,6 +66,26 @@ android {
     aaptOptions {
         cruncherEnabled false
     }
+
+    android{
+        protobuf {
+            protoc {
+                artifact = 'com.google.protobuf:protoc:3.21.5'
+            }
+
+            generateProtoTasks {
+                all().each { task ->
+                    task.builtins {
+                        remove java
+                    }
+                    task.builtins {
+                        java {}
+//                cpp { }
+                    }
+                }
+            }
+        }
+    }
 }
 
 dependencies {
@@ -82,7 +103,8 @@ dependencies {
     implementation 'io.reactivex.rxjava2:rxjava:2.1.0'
     implementation 'com.squareup.retrofit2:retrofit:2.3.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    implementation 'com.google.protobuf:protobuf-java:3.1.0'
+    implementation 'com.google.protobuf:protobuf-java:3.21.5'
+    implementation 'com.google.protobuf:protoc:3.21.5'
     implementation 'androidx.multidex:multidex:2.0.1'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

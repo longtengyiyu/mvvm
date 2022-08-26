@@ -1,11 +1,10 @@
-package com.tangtang.mvvm.base;
-
-import android.content.Context;
+package com.tangtang.mvvm.kotlin.base;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.tangtang.mvvm.app.AppApplication;
+import com.tangtang.mvvm.base.AbstractBaseModel;
 import com.tangtang.mvvm.db.AppCache;
 import com.tangtang.mvvm.utils.ReflectUtils;
 
@@ -25,7 +24,7 @@ import java.util.Set;
  * 2021/7/30                  1.0                    1.0
  * Why & What is modified:
  */
-public abstract class BaseViewModel<T, P> extends ViewModel {
+public abstract class BaseViewModel<T> extends ViewModel {
     protected final String TAG = BaseViewModel.class.getSimpleName();
 
     /**
@@ -89,21 +88,4 @@ public abstract class BaseViewModel<T, P> extends ViewModel {
         }
         models.clear();
     }
-
-    public void loadData(P param){
-        if (AppCache.isNetConnected()){
-            loadDataByNetwork(param);
-        }else{
-            loadDataByDb(param);
-        }
-    }
-
-    protected void loadDataByNetwork(P param){
-
-    }
-
-    protected void loadDataByDb(P param){
-
-    }
-
 }

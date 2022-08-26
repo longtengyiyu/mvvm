@@ -10,9 +10,11 @@ import com.tangtang.mvvm.bean.Weather;
 import com.tangtang.mvvm.databinding.ActivityWeatherListBinding;
 import com.tangtang.mvvm.db.AppCache;
 import com.tangtang.mvvm.entity.DayWeather;
+import com.tangtang.mvvm.json.RYJson;
 import com.tangtang.mvvm.utils.CommonUtils;
 import com.tangtang.mvvm.utils.LogUtils;
 import com.tangtang.mvvm.viewmodel.WeatherViewModel;
+import com.tangtang.proto.UserOuterClass;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,8 +41,9 @@ public class WeatherListActivity extends BaseMVVMActivity<WeatherViewModel, Acti
         binding.recyclerView.setLayoutManager(manager);
         adapter = new WeatherDataAdapter(this);
         binding.recyclerView.setAdapter(adapter);
-//        viewModel.loadWeather("上海");
-        viewModel.loadWeatherByDB("上海");
+        UserOuterClass.City city = UserOuterClass.City.newBuilder().setCity("上海").build();
+        LogUtils.d(TAG, "city -->" + RYJson.get().toJson(city));
+        viewModel.loadData(city.getCity());
     }
 
     @Override

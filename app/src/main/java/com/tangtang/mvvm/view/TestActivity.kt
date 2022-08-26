@@ -3,11 +3,10 @@ package com.tangtang.mvvm.view
 import android.Manifest
 import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
-import com.tangtang.mvvm.bean.Weather
 import com.tangtang.mvvm.databinding.ActivityWeatherListBinding
 import com.tangtang.mvvm.entity.DayWeather
 import com.tangtang.mvvm.kotlin.base.BaseKotlinActivity
-import com.tangtang.mvvm.viewmodel.WeatherViewModel
+import com.tangtang.mvvm.kotlin.base.WeatherViewModel
 
 /**
  * Author:
@@ -59,7 +58,7 @@ class TestActivity: BaseKotlinActivity<WeatherViewModel, ActivityWeatherListBind
     }
 
     private fun loadWeather(city: String){
-        viewModel.loadWeather(city)
+        viewModel.loadDataByNetwork(city)
     }
 
 //    private fun getWeatherParam(city: String): WeatherParam {

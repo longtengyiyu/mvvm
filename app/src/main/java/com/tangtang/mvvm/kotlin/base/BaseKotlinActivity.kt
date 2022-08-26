@@ -5,7 +5,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.tangtang.mvvm.base.BaseAbstractActivity
-import com.tangtang.mvvm.base.BaseViewModel
 import com.tangtang.mvvm.utils.ToastUtils
 
 /**

@@ -1,0 +1,19 @@
+package user;
+
+option java_package = 'com.tangtang.proto';
+
+message User{
+    required string id = 1;
+    optional string user_name = 2;
+    optional int32 gender = 3;
+    optional Grade grade = 4;
+}
+
+enum Grade {
+  GRADE_ONE = 1;
+  GRADE_TWO = 2;
+}
+
+message City{
+   optional string city = 1;
+}
