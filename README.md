@@ -94,7 +94,7 @@ public class WeatherViewModel extends BaseViewModel<Weather> {
 ```
 直接在WeatherListActivity里调用 
 ```
- viewModel.loadWeather("上海");
+ viewModel.loadData("上海");
 ```
 
 
