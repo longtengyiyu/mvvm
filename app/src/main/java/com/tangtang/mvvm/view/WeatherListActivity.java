@@ -42,6 +42,14 @@ public class WeatherListActivity extends BaseMVVMActivity<WeatherViewModel, Acti
         adapter = new WeatherDataAdapter(this);
         binding.recyclerView.setAdapter(adapter);
         UserOuterClass.City city = UserOuterClass.City.newBuilder().setCity("上海").build();
+        UserOuterClass.User user = UserOuterClass.User.newBuilder()
+                .setId("1")
+                .setGender(0)
+                .setUserName("Lily")
+                .setGrade(UserOuterClass.Grade.GRADE_ONE)
+                .build();
+        RYJson.get().toJson(user);
+
         LogUtils.d(TAG, "city -->" + RYJson.get().toJson(city));
         viewModel.loadData(city.getCity());
     }
