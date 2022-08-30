@@ -14,6 +14,8 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import io.reactivex.Observer;
+
 /**
  * Author:
  * Version    V1.0
@@ -90,6 +92,7 @@ public abstract class BaseViewModel<T, P> extends ViewModel {
         models.clear();
     }
 
+    //load data
     public void loadData(P param){
         if (AppCache.isNetConnected()){
             loadDataByNetwork(param);
@@ -98,12 +101,10 @@ public abstract class BaseViewModel<T, P> extends ViewModel {
         }
     }
 
-    protected void loadDataByNetwork(P param){
+    //load network data
+    protected abstract void loadDataByNetwork(P param);
 
-    }
-
-    protected void loadDataByDb(P param){
-
-    }
+    //load db data
+    protected abstract void loadDataByDb(P param);
 
 }

@@ -1,4 +1,4 @@
-Protobuf，类似于json和xml，是一种序列化结构数据机制，可以用于数据通讯等场景，相对于xml而言更小，相对于json而言解析更快。下面学习下protobuf在安卓中的应用。
+protobuf类似于json和xml，是一种序列化结构数据机制，可以用于数据通讯等场景，相对于xml而言更小，相对于json而言解析更快。下面学习下protobuf在安卓中的应用。
 
 根目录build.gradle中buildscript配置protobuf插件依赖
 

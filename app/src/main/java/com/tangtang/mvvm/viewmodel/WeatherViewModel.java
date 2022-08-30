@@ -11,6 +11,8 @@ import com.tangtang.mvvm.utils.LogUtils;
 import java.util.List;
 import java.util.Set;
 
+import io.reactivex.Observer;
+
 /**
  * Author:
  * Version    V1.0
@@ -65,6 +67,7 @@ public class WeatherViewModel extends BaseViewModel<List<DayWeather>, String> {
             }
         });
     }
+
 
     @Override
     protected void loadDataByDb(String s) {
