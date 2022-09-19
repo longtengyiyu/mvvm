@@ -6,17 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.tangtang.mvvm.R;
 import com.tangtang.mvvm.adapter.WeatherDataAdapter;
 import com.tangtang.mvvm.base.BaseMVVMActivity;
-import com.tangtang.mvvm.bean.Weather;
 import com.tangtang.mvvm.databinding.ActivityWeatherListBinding;
-import com.tangtang.mvvm.db.AppCache;
 import com.tangtang.mvvm.entity.DayWeather;
-import com.tangtang.mvvm.json.RYJson;
-import com.tangtang.mvvm.utils.CommonUtils;
+import com.tangtang.mvvm.json.JsonUtils;
 import com.tangtang.mvvm.utils.LogUtils;
 import com.tangtang.mvvm.viewmodel.WeatherViewModel;
 import com.tangtang.proto.UserOuterClass;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -48,9 +44,9 @@ public class WeatherListActivity extends BaseMVVMActivity<WeatherViewModel, Acti
                 .setUserName("Lily")
                 .setGrade(UserOuterClass.Grade.GRADE_ONE)
                 .build();
-        RYJson.get().toJson(user);
+        JsonUtils.get().toJson(user);
 
-        LogUtils.d(TAG, "city -->" + RYJson.get().toJson(city));
+        LogUtils.d(TAG, "city -->" + JsonUtils.get().toJson(city));
         viewModel.loadData(city.getCity());
     }
 

@@ -1,5 +1,6 @@
 package com.tangtang.mvvm.api;
 
+import com.tangtang.mvvm.bean.User;
 import com.tangtang.mvvm.bean.Weather;
 
 import io.reactivex.Observable;
@@ -27,6 +28,9 @@ public interface ApiStore {
 
     @GET("api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm")
     Observable<Weather> getWeather(@Query("city") String city);
+
+    @POST("/user/login")
+    Observable<User> login(@Body RequestBody body);
 
     @POST
     Observable<ResponseBody> report(@Url String url, @Body RequestBody body);

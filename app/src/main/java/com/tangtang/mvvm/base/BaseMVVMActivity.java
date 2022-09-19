@@ -8,7 +8,7 @@ import androidx.databinding.ViewDataBinding;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.tangtang.mvvm.json.RYJson;
+import com.tangtang.mvvm.json.JsonUtils;
 import com.tangtang.mvvm.utils.LogUtils;
 import com.tangtang.mvvm.utils.ToastUtils;
 
@@ -59,7 +59,7 @@ public abstract class BaseMVVMActivity<V extends BaseViewModel, B extends ViewDa
 
     @Override
     public void onChanged(D d) {
-        LogUtils.d(TAG, RYJson.get().toJson(d));
+        LogUtils.d(TAG, JsonUtils.get().toJson(d));
         updateData(d);
     }
 

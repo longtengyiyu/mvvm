@@ -33,6 +33,7 @@ public abstract class BaseMVVMFragment<V extends BaseViewModel, B extends ViewDa
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = DataBindingUtil.inflate(inflater, getFragmentLayoutRes(), container, false);
         mViewModel = new ViewModelProvider(this).get(getModelClass());
+        mViewModel.getData().observe(getViewLifecycleOwner(), this);
         mBinding.setLifecycleOwner(this);
         setViewModel();
         View view = mBinding.getRoot();

@@ -1,6 +1,6 @@
 package com.tangtang.mvvm.api;
 
-import com.tangtang.mvvm.json.RYJson;
+import com.tangtang.mvvm.json.JsonUtils;
 import com.tangtang.mvvm.utils.LogUtils;
 
 import io.reactivex.Observable;
@@ -41,7 +41,7 @@ public abstract class BaseRedirectResponseTransformer<T> implements ObservableTr
 
                     @Override
                     public void onNext(@NonNull T httpResult) {
-                        LogUtils.d("BaseRedirectResponseTransformer", RYJson.get().toJson(httpResult));
+                        LogUtils.d("BaseRedirectResponseTransformer", JsonUtils.get().toJson(httpResult));
                         if (httpResult != null) {
                             observer.onNext(httpResult);
                             observer.onComplete();

@@ -5,7 +5,7 @@ import com.tangtang.mvvm.api.ApiCallback;
 import com.tangtang.mvvm.api.ApiStore;
 import com.tangtang.mvvm.api.ResponseTransformer;
 import com.tangtang.mvvm.base.AbstractBaseModel;
-import com.tangtang.mvvm.json.RYJson;
+import com.tangtang.mvvm.json.JsonUtils;
 import com.tangtang.mvvm.param.WeatherParam;
 import com.tangtang.mvvm.utils.ApiUtils;
 
@@ -22,7 +22,7 @@ public class ReportModel extends AbstractBaseModel {
     //post a json data
     public void report(String url, WeatherParam param, ApiCallback<Boolean> callback){
         executeHTTP(
-                API.getInstance().create(ApiStore.class).report(url, ApiUtils.createRequestBody(RYJson.get().toJson(param))),
+                API.getInstance().create(ApiStore.class).report(url, ApiUtils.createRequestBody(JsonUtils.get().toJson(param))),
                 new ResponseTransformer(),
                 callback
         );

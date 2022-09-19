@@ -19,7 +19,7 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-        buildConfigField "String", "API_HOST", "\"http://v0.yiketianqi.com/\"" //域名
+        buildConfigField "String", "API_HOST", "\"http://10.1.100.60:8888\"" //域名
         ndk {
             abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
         }

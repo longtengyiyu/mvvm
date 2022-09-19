@@ -3,15 +3,15 @@ package com.tangtang.mvvm.viewmodel;
 import com.tangtang.mvvm.api.ApiCallback;
 import com.tangtang.mvvm.base.AbstractBaseModel;
 import com.tangtang.mvvm.base.BaseViewModel;
-import com.tangtang.mvvm.bean.Weather;
+import com.tangtang.mvvm.bean.User;
 import com.tangtang.mvvm.entity.DayWeather;
+import com.tangtang.mvvm.json.JsonUtils;
 import com.tangtang.mvvm.model.WeatherModel;
+import com.tangtang.mvvm.param.LoginParam;
 import com.tangtang.mvvm.utils.LogUtils;
 
 import java.util.List;
 import java.util.Set;
-
-import io.reactivex.Observer;
 
 /**
  * Author:
@@ -41,24 +41,18 @@ public class WeatherViewModel extends BaseViewModel<List<DayWeather>, String> {
 
     @Override
     protected void loadDataByNetwork(String s) {
-        getModel(WeatherModel.class).getWeather(s, new ApiCallback<Weather>() {
+        LoginParam loginParam = new LoginParam();
+        loginParam.setUsername("user");
+        loginParam.setPassword("123456");
+        getModel(WeatherModel.class).login(loginParam, new ApiCallback<User>() {
             @Override
-            protected void onSuccess(Weather weather) {
-                List<DayWeather> dayWeathers = weather.getData();
-                if (dayWeathers != null && !dayWeathers.isEmpty()){
-                    for (DayWeather dayWeather : dayWeathers) {
-                        dayWeather.setCity(weather.getCity());
-                    }
-                    saveWeathers(dayWeathers);
-                    getData().setValue(dayWeathers);
-                }else {
-                    getErrorMsg().setValue("Data is empty.");
-                }
+            protected void onSuccess(User user) {
+                LogUtils.d(TAG, "user --> " + JsonUtils.get().toJson(user));
             }
 
             @Override
             protected void onFailed(String message) {
-                getErrorMsg().setValue(message);
+                LogUtils.d(TAG, "onFailed --> " + message);
             }
 
             @Override
@@ -66,6 +60,31 @@ public class WeatherViewModel extends BaseViewModel<List<DayWeather>, String> {
 
             }
         });
+//        getModel(WeatherModel.class).getWeather(s, new ApiCallback<Weather>() {
+//            @Override
+//            protected void onSuccess(Weather weather) {
+//                List<DayWeather> dayWeathers = weather.getData();
+//                if (dayWeathers != null && !dayWeathers.isEmpty()){
+//                    for (DayWeather dayWeather : dayWeathers) {
+//                        dayWeather.setCity(weather.getCity());
+//                    }
+//                    saveWeathers(dayWeathers);
+//                    getData().setValue(dayWeathers);
+//                }else {
+//                    getErrorMsg().setValue("Data is empty.");
+//                }
+//            }
+//
+//            @Override
+//            protected void onFailed(String message) {
+//                getErrorMsg().setValue(message);
+//            }
+//
+//            @Override
+//            public void onComplete() {
+//
+//            }
+//        });
     }
 
 

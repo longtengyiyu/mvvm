@@ -5,10 +5,13 @@ import com.tangtang.mvvm.api.ApiCallback;
 import com.tangtang.mvvm.api.ApiStore;
 import com.tangtang.mvvm.api.ResponseTransformer;
 import com.tangtang.mvvm.base.AbstractBaseModel;
+import com.tangtang.mvvm.bean.User;
 import com.tangtang.mvvm.bean.Weather;
 import com.tangtang.mvvm.db.Repository;
 import com.tangtang.mvvm.entity.DayWeather;
-import com.tangtang.mvvm.param.WeatherParam;
+import com.tangtang.mvvm.json.JsonUtils;
+import com.tangtang.mvvm.param.LoginParam;
+import com.tangtang.mvvm.utils.ApiUtils;
 
 import java.util.List;
 
@@ -24,6 +27,13 @@ public class WeatherModel extends AbstractBaseModel {
         executeHTTP(
                 API.getInstance().create(ApiStore.class).getWeather(city), new ResponseTransformer(),
                         callback
+        );
+    }
+
+    public void login(LoginParam param, ApiCallback<User> callback) {
+        executeHTTP(
+                API.getInstance().create(ApiStore.class).login(ApiUtils.createRequestBody(JsonUtils.get().toJson(param))), new ResponseTransformer(),
+                callback
         );
     }
 

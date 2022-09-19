@@ -1,6 +1,6 @@
 package com.tangtang.mvvm.json;
 
-public class RYJson {
+public class JsonUtils {
     public static JsonSerializer get(){
         return get(JsonSerializerHolder.Serializer.GSON);
     }
